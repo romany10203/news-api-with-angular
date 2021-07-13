@@ -1,0 +1,38 @@
+<nav class="navbar  navbar-expand-md navbar-dark bg-secondary">
+    <a></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ">
+            <li *ngFor='let c of categories' class="nav-item">
+                <a class="nav-link" (click)="changeCat($event)">{{c}}</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="customSelect float-right">
+    <label class="badge">Country </label>
+    <select class="countries border bg-secondary" (change)="changeCunt($event)">
+        <option *ngFor='let c of countries; let i = index' [value]="i">{{c.count}}</option>
+    </select>
+</div>
+<div class="container my-5">
+    <input (keyup)="search($event)" class="form-control" type="text" placeholder="Search For?">
+</div>
+<div class="container-fluid my-5">
+    <div class="row ">
+        <div *ngFor="let n of allNews" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="newws border my-3">
+                <div class="text-center p-1">
+                    <img class="img-fluid border" [src]="n.urlToImage" [alt]="n.title">
+                </div>
+                <div>
+                    <p class="h6 m-0 p-1">{{n.title}}</p>
+                    <p class="text-muted p-2">{{n.description}}</p>
+                    <a class="px-2 py-1 bg-secondary text-white" [href]="n.url" target="_blanc">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
